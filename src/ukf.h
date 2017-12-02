@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include "tools.h"
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
@@ -64,9 +65,23 @@ public:
   ///* Augmented state dimension
   int n_aug_;
 
+  ///* Predicted sigma points dimension
+  int n_sig_;
+
   ///* Sigma point spreading parameter
   double lambda_;
 
+  ///* set measurement dimension, lidar can measure px and py
+  int n_z_laser_;
+
+  ///* define covariance matrix R_laser_ for lidar measurement
+  MatrixXd R_laser_;
+
+  ///* set measurement dimension, radar can measure r, phi, and r_dot
+  int n_z_radar_;
+
+  ///* define covariance matrix R_radar_ for radar measurement
+  MatrixXd R_radar_;
 
   /**
    * Constructor
